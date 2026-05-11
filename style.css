@@ -1,0 +1,143 @@
+/* --- 1. FONDO INFINITO Y BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+
+html {
+    /* El fondo se ancla al navegador para cubrir siempre el 100% */
+    height: 100%;
+    background: #333 url("img/fondo.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: transparent; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* --- 2. LOGO PRINCIPAL (Sólido y Grande) --- */
+.logo {
+    display: block !important;
+    width: 85% !important; /* Comando para que crezca */
+    max-width: 400px !important;
+    height: auto !important;
+    margin: 25px auto !important; /* Centrado */
+    opacity: 1 !important; /* Quita lo translúcido */
+    filter: none !important; /* Sin sombras */
+    mix-blend-mode: normal !important;
+}
+
+/* --- 3. BIENVENIDA (Translúcido) --- */
+.bienvenida {
+    width: 100% !important;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.65) !important; 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.bienvenida h2 { font-size: 1.4rem; text-transform: uppercase; }
+.bienvenida p { font-size: 0.85rem; opacity: 0.9; }
+
+/* --- 4. CATÁLOGO Y PRODUCTOS --- */
+main#catalogo {
+    flex: 1;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px;
+    padding: 0 12px 20px !important;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.producto {
+    background: white !important;
+    border-radius: 12px;
+    padding: 12px;
+    position: relative; /* Necesario para ubicar el 📷+1 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+/* --- 5. INDICADOR DE FOTOS (📷 +1 Arriba a la Derecha) --- */
+.multi-fotos {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #000000 !important; /* Negro sólido */
+    opacity: 1 !important; /* Quita lo translúcido */
+    color: #ffffff;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.img-producto { width: 100%; height: 110px; object-fit: contain; }
+
+.precio { color: #28a745; font-size: 1.15rem; font-weight: bold; margin: 8px 0; }
+
+.boton-comprar {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 2px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* --- 6. FOOTER: INSTAGRAM Y FIRMA (Centrados abajo) --- */
+footer {
+    width: 100%;
+    padding: 30px 0 60px; 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px; 
+}
+
+.instagram-link img { 
+    width: 45px !important; 
+    height: 45px !important; 
+    border-radius: 50%;
+}
+
+.firma-3du {
+    color: #fff;
+    font-size: 1rem !important; 
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* --- 7. CARRITO Y MODALES --- */
+#btn-carrito-flotante {
+    position: fixed; bottom: 20px; right: 20px; background: #28a745;
+    color: white; width: 55px; height: 55px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.modal-bg {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center;
+}
+.contenido-carrito {
+    background: white; width: 85%; max-width: 340px; border-radius: 15px; padding: 20px;
+}
