@@ -7,7 +7,7 @@ const productos = [
         precio: "3.999",
         imagenes: [
             "img/art1.jpg", 
-            "img/art1.2.png",
+            "img/Art1.2.png",
             "img/art1.3.jpg"
         ]
     },
