@@ -7,7 +7,7 @@ const productos = [
         precio: "3.999",
         imagenes: [
             "img/art1.jpg", 
-            "img/art1.2.jpg",
+            "img/art1.2.png",
             "img/art1.3.jpg"
         ]
     },
@@ -15,16 +15,16 @@ const productos = [
         nombre: "CORREA Y ARNES",
         precio: "17.999",
         imagenes: [
-            "img/art2.jpg",
-            "img/art2.jpg" 
+            "img/art2.png",
+            "img/art2.png" 
         ]
     },
     {
         nombre: "CORREA Y COLLAR",
         precio: "13.999",
         imagenes: [
-            "img/art3.jpg", 
-            "img/art3.1.jpg"
+            "img/art3.png", 
+            "img/art3.1.png"
         ]
     },
     {
