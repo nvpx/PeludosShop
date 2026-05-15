@@ -107,14 +107,46 @@ footer {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 4px; 
+    gap: 15px; /* Un poco más de espacio entre los botones y la firma */
+}
+
+/* NUEVO: Alinea Instagram y Play uno al lado del otro */
+.contenedor-botones {
+    display: flex;
+    flex-direction: row; /* Fuerza la línea horizontal */
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Separación horizontal entre el logo y el botón */
 }
 
 .instagram-link img { 
     width: 45px !important; 
     height: 45px !important; 
     border-radius: 50%;
+    display: block;
 }
+
+/* NUEVO: Estilos básicos para el botón de Play (ajustalo a tu gusto) */
+.play-btn {
+    height: 45px; /* Misma altura que el logo de Instagram para que queden simétricos */
+    padding: 0 25px;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    border: none;
+    border-radius: 25px; /* Bordes redondeados */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Efecto visual al pasar el mouse por encima del Play */
+.play-btn:hover {
+    background-color: #e0e0e0; 
+}
+
+//ESTO SIRVE PARA EL PIE DE PÁGINA 
 
 .firma-3du {
     color: #fff;
