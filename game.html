@@ -140,6 +140,7 @@ function handleGameOver(scene, hitObstacle) {
         highName = (name || "PLAYER").substring(0, 7).toUpperCase();
         localStorage.setItem('pixelJumpHighScore', finalScore);
         localStorage.setItem('pixelJumpHighName', highName);
+        highScore = finalScore;
     }
 
     scene.time.delayedCall(800, () => {
