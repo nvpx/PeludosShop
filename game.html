@@ -138,9 +138,14 @@ function handleGameOver(scene, hitObstacle) {
     if (finalScore > highScore) {
         let name = prompt(`¡NUEVO RÉCORD! ${finalScore}\nTu nombre:`, "PLAYER");
         highName = (name || "PLAYER").substring(0, 7).toUpperCase();
+        
         localStorage.setItem('pixelJumpHighScore', finalScore);
         localStorage.setItem('pixelJumpHighName', highName);
-        highScore = finalScore;
+        
+        highScore = finalScore; 
+        
+        // Esta línea actualiza la URL del navegador con el récord actual
+        window.history.pushState({}, '', `?name=${highName}&score=${finalScore}`);
     }
 
     scene.time.delayedCall(800, () => {
