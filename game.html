@@ -142,10 +142,9 @@ function handleGameOver(scene, hitObstacle) {
         localStorage.setItem('pixelJumpHighScore', finalScore);
         localStorage.setItem('pixelJumpHighName', highName);
         
-        highScore = finalScore; 
-        
         // Esta línea actualiza la URL del navegador con el récord actual
         window.history.pushState({}, '', `?name=${highName}&score=${finalScore}`);
+        highScore = finalScore; 
     }
 
     scene.time.delayedCall(800, () => {
