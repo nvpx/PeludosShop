@@ -1,175 +1,465 @@
-/* --- 1. FONDO INFINITO Y BASE --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box !important;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-html {
-    /* El fondo se ancla al navegador para cubrir siempre el 100% */
-    height: 100%;
-    background: #333 url("img/fondo.jpg") no-repeat center center fixed;
-    background-size: cover;
+html{
+min-height:100%;
+background:url("img/fondo.jpg") center center fixed;
+background-size:cover;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: transparent; 
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+body{
+font-family:'Segoe UI',sans-serif;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+background:rgba(0,0,0,.25);
+backdrop-filter:blur(4px);
+overflow-x:hidden;
 }
 
-/* --- 2. LOGO PRINCIPAL (Sólido y Grande) --- */
-.logo {
-    display: block !important;
-    width: 85% !important; /* Comando para que crezca */
-    max-width: 400px !important;
-    height: auto !important;
-    margin: 25px auto !important; /* Centrado */
-    opacity: 1 !important; /* Quita lo translúcido */
-    filter: none !important; /* Sin sombras */
-    mix-blend-mode: normal !important;
+/* HEADER */
+
+.header{
+padding:20px 15px;
+text-align:center;
 }
 
-/* --- 3. BIENVENIDA (Translúcido) --- */
-.bienvenida {
-    width: 100% !important;
-    padding: 20px 0;
-    background: rgba(0, 0, 0, 0.65) !important; 
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    color: #fff;
-    text-align: center;
-    margin-bottom: 25px;
-}
-.bienvenida h2 { font-size: 1.4rem; text-transform: uppercase; }
-.bienvenida p { font-size: 0.85rem; opacity: 0.9; }
-
-/* --- 4. CATÁLOGO Y PRODUCTOS --- */
-main#catalogo {
-    flex: 1;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px;
-    padding: 0 12px 20px !important;
-    max-width: 800px;
-    margin: 0 auto;
+.logo{
+width:90%;
+max-width:380px;
+display:block;
+margin:0 auto 20px;
+filter:drop-shadow(0 10px 20px rgba(0,0,0,.4));
 }
 
-.producto {
-    background: white !important;
-    border-radius: 12px;
-    padding: 12px;
-    position: relative; /* Necesario para ubicar el 📷+1 */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
+/* BIENVENIDA */
+
+.bienvenida{
+max-width:900px;
+margin:auto;
+padding:25px;
+border-radius:25px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(15px);
+
+-webkit-backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.2);
+
+color:white;
 }
 
-/* --- 5. INDICADOR DE FOTOS (📷 +1 Arriba a la Derecha) --- */
-.multi-fotos {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #000000 !important; /* Negro sólido */
-    opacity: 1 !important; /* Quita lo translúcido */
-    color: #ffffff;
-    font-size: 0.7rem;
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-weight: bold;
-    z-index: 10;
+.bienvenida h2{
+font-size:1.5rem;
+margin-bottom:10px;
 }
 
-.img-producto { width: 100%; height: 110px; object-fit: contain; }
-
-.precio { color: #28a745; font-size: 1.15rem; font-weight: bold; margin: 8px 0; }
-
-.boton-comprar {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 2px;
-    border-radius: 8px;
-    font-size: 0.7rem;
-    font-weight: bold;
+.bienvenida p{
+font-size:.95rem;
 }
 
-/* --- 6. FOOTER: INSTAGRAM Y FIRMA (Centrados abajo) --- */
-footer {
-    width: 100%;
-    padding: 30px 0 60px; 
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 15px; /* Un poco más de espacio entre los botones y la firma */
+/* CATALOGO */
+
+#catalogo{
+
+width:100%;
+
+max-width:1400px;
+
+margin:auto;
+
+padding:20px;
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
 }
 
-/* NUEVO: Alinea Instagram y Play uno al lado del otro */
-.contenedor-botones {
-    display: flex;
-    flex-direction: row; /* Fuerza la línea horizontal */
-    align-items: center;
-    justify-content: center;
-    gap: 15px; /* Separación horizontal entre el logo y el botón */
+@media(min-width:900px){
+
+#catalogo{
+grid-template-columns:repeat(4,1fr);
 }
 
-.instagram-link img { 
-    width: 45px !important; 
-    height: 45px !important; 
-    border-radius: 50%;
-    display: block;
 }
 
-/* NUEVO: Estilos básicos para el botón de Play (ajustalo a tu gusto) */
-.play-btn {
-    height: 45px; /* Misma altura que el logo de Instagram para que queden simétricos */
-    padding: 0 25px;
-    background-color: #ffffff; /* Fondo blanco */
-    color: #000000; /* Texto negro */
-    border: none;
-    border-radius: 25px; /* Bordes redondeados */
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+/* PRODUCTOS */
+
+.producto{
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(15px);
+
+-webkit-backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:25px;
+
+padding:15px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+text-align:center;
+
+transition:.3s;
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.25);
+
 }
 
-/* Efecto visual al pasar el mouse por encima del Play */
-.play-btn:hover {
-    background-color: #e0e0e0; 
+.producto:hover{
+
+transform:translateY(-5px);
+
 }
 
-/*ESTO SIRVE PARA EL PIE DE PÁGINA 
+.multi-fotos{
 
-.firma-3du {
-    color: #fff;
-    font-size: 1rem !important; 
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0.8;
-    text-align: center;
+position:absolute;
+
+top:10px;
+
+right:10px;
+
+background:rgba(0,0,0,.7);
+
+color:white;
+
+padding:5px 8px;
+
+border-radius:10px;
+
+font-size:.7rem;
+
 }
 
-/* --- 7. CARRITO Y MODALES --- */
-#btn-carrito-flotante {
-    position: fixed; bottom: 20px; right: 20px; background: #28a745;
-    color: white; width: 55px; height: 55px; border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-    z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+.img-producto{
+
+width:100%;
+
+height:180px;
+
+object-fit:contain;
+
+transition:.4s;
+
+cursor:pointer;
+
 }
 
-.modal-bg {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center;
+.producto:hover .img-producto{
+
+transform:scale(1.05);
+
 }
-.contenido-carrito {
-    background: white; width: 85%; max-width: 340px; border-radius: 15px; padding: 20px;
+
+.producto h3{
+
+color:white;
+
+font-size:.95rem;
+
+margin:12px 0;
+
+}
+
+.precio{
+
+font-size:1.25rem;
+
+font-weight:800;
+
+color:#7dff96;
+
+margin-bottom:12px;
+
+}
+
+.boton-comprar{
+
+background:
+linear-gradient(
+135deg,
+#ff8c00,
+#ff5e00
+);
+
+color:white;
+
+border:none;
+
+padding:12px;
+
+border-radius:12px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.boton-comprar:hover{
+
+transform:scale(1.03);
+
+}
+
+/* CARRITO */
+
+#btn-carrito-flotante{
+
+position:fixed;
+
+top:20px;
+
+right:20px;
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:24px;
+
+color:white;
+
+cursor:pointer;
+
+z-index:9999;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.3);
+
+}
+
+#contador-carrito{
+
+position:absolute;
+
+top:-5px;
+
+right:-5px;
+
+background:#ff4d4d;
+
+width:22px;
+
+height:22px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:.75rem;
+
+font-weight:bold;
+
+}
+
+/* FOOTER */
+
+footer{
+
+margin-top:30px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.footer-box{
+
+width:100%;
+
+background:rgba(255,255,255,.10);
+
+backdrop-filter:blur(15px);
+
+padding:18px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.instagram-link{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+.instagram-link img{
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+}
+
+.play-btn{
+
+width:100%;
+
+background:none;
+
+border:none;
+
+color:white;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+.firma{
+
+color:white;
+
+text-align:center;
+
+padding:15px;
+
+opacity:.7;
+
+}
+
+/* MODALES */
+
+.modal-bg{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.8);
+
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+}
+
+.contenido-carrito{
+
+width:90%;
+
+max-width:400px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:white;
+
+}
+
+.total-carrito{
+
+margin-top:15px;
+
+font-size:1.2rem;
+
+font-weight:bold;
+
+text-align:right;
+
+}
+
+.btn-whatsapp{
+
+width:100%;
+
+margin-top:20px;
+
+padding:14px;
+
+border:none;
+
+border-radius:12px;
+
+background:#25D366;
+
+color:white;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+#imgG{
+
+max-width:95%;
+
+max-height:90%;
+
+border-radius:20px;
+
 }
