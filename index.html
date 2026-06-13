@@ -1,55 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Peludos Shop | Accesorios</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Peludos Shop | Accesorios</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-    <img src="img/logo.PNG" alt="Peludos Shop" class="logo">
+<!-- CARRITO -->
 
-    <section class="bienvenida">
-        <h2>¡Bienvenidos a Peludos Shop!</h2>
-        <p>Calidad premium para tu mejor amigo🐾</p>
-    </section>
+<div id="btn-carrito-flotante"
+onclick="abrirCarrito()">
 
-    <div id="btn-carrito-flotante" onclick="abrirCarrito()">
-        🛒 <span id="contador-carrito">0</span>
-    </div>
+🛒
 
-    <main id="catalogo"></main>
+<span id="contador-carrito">0</span>
 
-   <footer>
-    <div class="contenedor-botones">
-        <a href="https://www.instagram.com/peludosshoparg" target="_blank" class="instagram-link">
-            <img src="img/ logoInsta.PNG" alt="Instagram">
-        </a>
-        
-        <button class="play-btn" onclick="location.href='game.html'">
-            PLAY
-        </button>
-    </div>
-    
-    <p class="firma">©3DU.DESIGN</p> 
-    </footer>
+</div>
 
-    <div id="modal-carrito" class="modal-bg" onclick="cerrarCarrito()">
-        <div class="contenido-carrito" onclick="event.stopPropagation()">
-            <h3 style="margin-bottom:15px; border-bottom: 1px solid #eee;">Tu Pedido</h3>
-            <div id="lista-carrito"></div>
-            <div style="margin-top:15px; text-align:right; font-weight:bold; font-size:1.2rem;">
-                Total: $<span id="precio-total">0</span>
-            </div>
-            <button onclick="enviarWhatsApp()" style="width:100%; background:#25D366; color:#fff; border:none; padding:15px; border-radius:8px; font-weight:bold; margin-top:15px;">Pedir por WhatsApp</button>
-        </div>
-    </div>
+<!-- HEADER -->
 
-    <div id="modal-zoom" class="modal-bg" onclick="this.style.display='none'">
-        <img id="imgG" src="" style="max-width:95%; border-radius:10px;">
-    </div>
+<header class="header">
 
-    <script src="script.js"></script>
+<img
+src="img/logo.PNG"
+alt="Peludos Shop"
+class="logo">
+
+<section class="bienvenida">
+
+<h2>
+¡Bienvenidos a Peludos Shop!
+</h2>
+
+<p>
+Calidad premium para tu mejor amigo 🐾
+</p>
+
+</section>
+
+</header>
+
+<!-- PRODUCTOS -->
+
+<main id="catalogo"></main>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-box">
+
+<a
+href="https://www.instagram.com/peludosshoparg"
+target="_blank"
+class="instagram-link">
+
+<img
+src="img/logoInsta.PNG"
+alt="Instagram">
+
+<span>
+@peludosshoparg
+</span>
+
+</a>
+
+</div>
+
+<div class="footer-box">
+
+<button
+class="play-btn"
+onclick="location.href='game.html'">
+
+🎮 PLAY
+
+</button>
+
+</div>
+
+<p class="firma">
+
+© 3DU.DESIGN
+
+</p>
+
+</footer>
+
+<!-- MODAL CARRITO -->
+
+<div
+id="modal-carrito"
+class="modal-bg"
+onclick="cerrarCarrito()">
+
+<div
+class="contenido-carrito"
+onclick="event.stopPropagation()">
+
+<h3
+style="
+margin-bottom:15px;
+border-bottom:1px solid #ddd;
+padding-bottom:10px;
+">
+
+Tu Pedido
+
+</h3>
+
+<div id="lista-carrito"></div>
+
+<div class="total-carrito">
+
+Total:
+$
+
+<span id="precio-total">
+
+0
+
+</span>
+
+</div>
+
+<button
+onclick="enviarWhatsApp()"
+class="btn-whatsapp">
+
+Finalizar Pedido
+
+</button>
+
+</div>
+
+</div>
+
+<!-- MODAL ZOOM -->
+
+<div
+id="modal-zoom"
+class="modal-bg"
+onclick="this.style.display='none'">
+
+<img
+id="imgG"
+src=""
+alt="Producto">
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
